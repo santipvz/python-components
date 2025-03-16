@@ -34,10 +34,11 @@ class BaseActuatorSimTask():
 		"""
 		This can return the current ActuatorData response instance or a copy.
 		"""
-		pass
+		return self.latestActuatorResponse
 	
 	def getSimpleName(self) -> str:
-		pass
+		return self.simpleName
+
 	
 	def updateActuator(self, data: ActuatorData) -> ActuatorData:
 		if data and self.typeID == data.getTypeID():
