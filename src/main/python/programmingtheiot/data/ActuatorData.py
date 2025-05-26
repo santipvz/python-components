@@ -24,6 +24,7 @@ class ActuatorData(BaseIotData):
 		self.command = ConfigConst.DEFAULT_COMMAND
 		self.stateData = ""
 		self.isResponse = False
+		self.timeStampMillis = 0
 
 	def getCommand(self) -> int:
 		return self.command
@@ -60,3 +61,4 @@ class ActuatorData(BaseIotData):
 			self.stateData = data.getStateData()
 			self.value = data.getValue()
 			self.isResponse = data.isResponseFlagEnabled()
+			self.timeStampMillis = data.timeStampMillis if hasattr(data, 'timeStampMillis') else 0
