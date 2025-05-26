@@ -86,7 +86,7 @@ class DefaultDataMessageListener(IDataMessageListener):
 			
 		return True
 	
-	def handleIncomingMessage(self, resourceEnum: ResourceNameEnum, msg: str) -> bool:
+	def handleIncomingMessage(self, resourceEnum: ResourceNameEnum = None, msg: str = None) -> bool:
 		"""
 		Callback function to handle incoming messages on a given topic with
 		a string-based payload.
@@ -95,8 +95,11 @@ class DefaultDataMessageListener(IDataMessageListener):
 		@param msg The message received. It is expected to be in JSON format.
 		@return bool True on success; False otherwise.
 		"""
-		logging.info('Topic: %s  Message: %s', resourceEnum.value(), msg)
-		return True
+		if resourceEnum and msg:
+			logging.info('Topic: %s  Message: %s', resourceEnum.value, msg)
+			return True
+		else:
+			return False
 
 	def handleSensorMessage(self, data: SensorData) -> bool:
 		"""
