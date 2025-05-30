@@ -79,20 +79,16 @@ class ConfigUtil(metaclass = Singleton):
 				if os.path.exists(credFileName) and os.path.isfile(credFileName):
 					logging.info("Loading credentials from section " + section + " and file " + credFileName)
 					
-					# read cred data and dump it into a custom section for parsing
-					fileRef  = Path(credFileName)
-					credData = "[" + ConfigConst.CRED_SECTION + "]\n" + fileRef.read_text()
-					
-					# create unique ConfigParser that preserves key case
+					# read cred data directly from file
 					credParser = configparser.ConfigParser()
-					credParser.optionxform = str
+					credParser.optionxform = str  # preserve key case
+					credParser.read(credFileName)
 					
-					# read the stringified file data and generate / return
-					# a dict for the section we just created
-					credParser.read_string(credData)
-					credProps = dict(credParser.items(ConfigConst.CRED_SECTION))
-					
-					return credProps
+					# return the credentials as a dict
+					if ConfigConst.CRED_SECTION in credParser:
+						return dict(credParser.items(ConfigConst.CRED_SECTION))
+					else:
+						logging.warn("No credentials section found in file: " + credFileName)
 				else:
 					logging.warn("Credential file doesn't exist: " + credFileName)
 			except Exception as e:

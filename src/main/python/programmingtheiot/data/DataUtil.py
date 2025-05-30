@@ -7,11 +7,8 @@
 # and designed to be modified by the student as needed.
 #
 
-from json import JSONEncoder
-
 import json
 import logging
-
 from decimal import Decimal
 from json import JSONEncoder
 
@@ -37,9 +34,9 @@ class DataUtil:
             logging.debug("ActuatorData is null. Returning empty string.")
             return ""
 
-        logging.debug("Encoding ActuatorData to JSON [pre] -->" + str(actuatorData))
+        logging.debug("Encoding ActuatorData to JSON [pre] --> %s", str(actuatorData))
         jsonData = self._generateJsonData(actuatorData, useDecForFloat=False)
-        logging.debug("Encoding ActuatorData to JSON [post] -->" + str(jsonData))
+        logging.debug("Encoding ActuatorData to JSON [post] --> %s", str(jsonData))
 
         return jsonData
 
@@ -50,25 +47,46 @@ class DataUtil:
             logging.debug("SensorData is null. Returning empty string.")
             return ""
 
-        logging.debug("Encoding SensorData to JSON [pre] -->" + str(sensorData))
+        logging.debug("Encoding SensorData to JSON [pre] --> %s", str(sensorData))
         jsonData = self._generateJsonData(obj=sensorData, useDecForFloat=False)
-        logging.debug("Encoding SensorData to JSON [post] -->" + str(jsonData))
+        logging.debug("Encoding SensorData to JSON [post] --> %s", str(jsonData))
 
         return jsonData
 
     def systemPerformanceDataToJson(
-        self, sysPerfData: SystemPerformanceData = None, useDecForFloat: bool = False
+        self, sysPerfData: SystemPerformanceData = None
     ):
         if not sysPerfData:
             logging.debug("SystemPerformanceData is null. Returning empty string.")
             return ""
 
         logging.debug(
-            "Encoding SystemPerformanceData to JSON [pre] -->" + str(sysPerfData)
+            "Encoding SystemPerformanceData to JSON [pre] --> %s", str(sysPerfData)
         )
-        jsonData = self._generateJsonData(obj=sysPerfData, useDecForFloat=False)
+        
+        # Create a dictionary from the object's attributes
+        sysPerfDict = vars(sysPerfData)
+        
+        # Remove unwanted keys for Ubidots
+        keys_to_remove = ['statusCode', 'typeID', 'longitude', 'elevation', 'latitude']
+        for key in keys_to_remove:
+            if key in sysPerfDict:
+                del sysPerfDict[key]
+                
+        # Convert the modified dictionary to JSON
+        jsonData = json.dumps(sysPerfDict, indent=4)
+        
+        # The base _generateJsonData also does some replacements, apply them here
+        if jsonData:
+            jsonData = (
+                jsonData.replace("'", '"')
+                .replace("False", "false")
+                .replace("True", "true")
+            )
+
+
         logging.debug(
-            "Encoding SystemPerformanceData to JSON [post] -->" + str(jsonData)
+            "Encoding SystemPerformanceData to JSON [post] --> %s", str(jsonData)
         )
 
         return jsonData

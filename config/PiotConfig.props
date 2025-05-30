@@ -11,15 +11,15 @@
 # MQTT client configuration information
 #
 [Mqtt.GatewayService]
-credFile       = ./cred/PiotMqttLocalCred.props
-certFile       = ./cert/PiotMqttLocalCertFile.pem
-host           = localhost
+credFile       = /home/santi/Escritorio/PIC/python-components/config/cred/UbidotsCloudCred.props
+certFile       = /home/santi/Escritorio/PIC/python-components/config/cred/UbidotsCloudCert.pem
+host           = industrial.api.ubidots.com
 port           = 1883
 securePort     = 8883
 defaultQoS     = 0
 keepAlive      = 60
-enableAuth     = False
-enableCrypt    = False
+enableAuth     = True
+enableCrypt    = True
 
 #
 # CoAP client configuration information
