@@ -66,6 +66,11 @@ handleTempChangeOnDevice = True
 triggerHvacTempFloor     = 18.0
 triggerHvacTempCeiling   = 20.0
 
+# threshold configuration
+tempThreshold     = 25.0
+humidityThreshold = 45.0
+pressureThreshold = 1010.0
+
 # camera settings
 streamHostAddr      = 127.0.0.1
 streamHostLabel     = localhost

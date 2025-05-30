@@ -23,6 +23,7 @@ from programmingtheiot.cda.sim.HumiditySensorSimTask import HumiditySensorSimTas
 from programmingtheiot.cda.sim.TemperatureSensorSimTask import TemperatureSensorSimTask
 from programmingtheiot.cda.sim.PressureSensorSimTask import PressureSensorSimTask
 
+from programmingtheiot.cda.system.ThresholdManager import ThresholdManager
 
 class SensorAdapterManager(object):
     """
@@ -68,6 +69,9 @@ class SensorAdapterManager(object):
         self.humidityAdapter = None
         self.pressureAdapter = None
         self.tempAdapter = None
+        
+        # Initialize threshold manager
+        self.thresholdManager = ThresholdManager()
 
         # see PIOT-CDA-03-006 description for thoughts on the next line of code
         self._initEnvironmentalSensorTasks()
@@ -81,9 +85,14 @@ class SensorAdapterManager(object):
         pressureData.setLocationID(self.locationID)
         tempData.setLocationID(self.locationID)
 
-        logging.debug("Generated humidity data: " + str(humidityData))
-        logging.debug("Generated pressure data: " + str(pressureData))
-        logging.debug("Generated temp data: " + str(tempData))
+        logging.debug("Generated humidity data: %s", str(humidityData))
+        logging.debug("Generated pressure data: %s", str(pressureData))
+        logging.debug("Generated temp data: %s", str(tempData))
+
+        # Check thresholds and trigger local actuation if needed
+        self.thresholdManager.checkThresholds(humidityData)
+        self.thresholdManager.checkThresholds(pressureData)
+        self.thresholdManager.checkThresholds(tempData)
 
         if self.dataMsgListener:
             self.dataMsgListener.handleSensorMessage(humidityData)
@@ -93,6 +102,13 @@ class SensorAdapterManager(object):
     def setDataMessageListener(self, listener: IDataMessageListener) -> bool:
         if listener:
             self.dataMsgListener = listener
+            return True
+        return False
+        
+    def setActuatorManager(self, actuatorManager) -> bool:
+        """Set the actuator manager reference in the threshold manager"""
+        if actuatorManager:
+            self.thresholdManager.setActuatorManager(actuatorManager)
             return True
         return False
 

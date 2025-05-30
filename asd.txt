@@ -1,0 +1,158 @@
+src/test
+└── python
+    ├── __init__.py
+    ├── programmingtheiot
+    │   ├── __init__.py
+    │   ├── part01
+    │   │   ├── __init__.py
+    │   │   ├── integration
+    │   │   │   ├── app
+    │   │   │   │   ├── ConstrainedDeviceAppTest.py
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   ├── logging.conf
+    │   │   │   │   └── __pycache__
+    │   │   │   │       └── __init__.cpython-312.pyc
+    │   │   │   ├── __init__.py
+    │   │   │   ├── __pycache__
+    │   │   │   │   └── __init__.cpython-312.pyc
+    │   │   │   └── system
+    │   │   │       ├── __init__.py
+    │   │   │       ├── __pycache__
+    │   │   │       │   └── __init__.cpython-312.pyc
+    │   │   │       └── SystemPerformanceManagerTest.py
+    │   │   ├── __pycache__
+    │   │   │   └── __init__.cpython-312.pyc
+    │   │   └── unit
+    │   │       ├── common
+    │   │       │   ├── ConfigUtilTest.py
+    │   │       │   ├── DummyCredFile.props
+    │   │       │   ├── EmptyTestConfig.props
+    │   │       │   ├── __init__.py
+    │   │       │   ├── InvalidTestConfig.props
+    │   │       │   ├── __pycache__
+    │   │       │   │   ├── ConfigUtilTest.cpython-312.pyc
+    │   │       │   │   └── __init__.cpython-312.pyc
+    │   │       │   └── ValidTestConfig.props
+    │   │       ├── __init__.py
+    │   │       ├── __pycache__
+    │   │       │   └── __init__.cpython-312.pyc
+    │   │       └── system
+    │   │           ├── __init__.py
+    │   │           ├── __pycache__
+    │   │           │   └── __init__.cpython-312.pyc
+    │   │           ├── SystemCpuUtilTaskTest.py
+    │   │           └── SystemMemUtilTaskTest.py
+    │   ├── part02
+    │   │   ├── __init__.py
+    │   │   ├── integration
+    │   │   │   ├── app
+    │   │   │   │   ├── DeviceDataManagerNoCommsTest.py
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   └── __pycache__
+    │   │   │   │       └── __init__.cpython-312.pyc
+    │   │   │   ├── data
+    │   │   │   │   ├── DataIntegrationTest.py
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   └── __pycache__
+    │   │   │   │       └── __init__.cpython-312.pyc
+    │   │   │   ├── embedded
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   └── __pycache__
+    │   │   │   │       └── __init__.cpython-312.pyc
+    │   │   │   ├── emulated
+    │   │   │   │   ├── ActuatorEmulatorManagerTest.py
+    │   │   │   │   ├── HumidifierEmulatorTaskTest.py
+    │   │   │   │   ├── HumidityEmulatorTaskTest.py
+    │   │   │   │   ├── HvacEmulatorTaskTest.py
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   ├── LedDisplayEmulatorTaskTest.py
+    │   │   │   │   ├── PressureEmulatorTaskTest.py
+    │   │   │   │   ├── __pycache__
+    │   │   │   │   │   ├── __init__.cpython-312.pyc
+    │   │   │   │   │   └── SenseHatEmulatorQuickTest.cpython-312.pyc
+    │   │   │   │   ├── SenseHatEmulatorQuickTest.py
+    │   │   │   │   ├── SensorEmulatorManagerTest.py
+    │   │   │   │   └── TemperatureEmulatorTaskTest.py
+    │   │   │   ├── __init__.py
+    │   │   │   ├── __pycache__
+    │   │   │   │   └── __init__.cpython-312.pyc
+    │   │   │   └── system
+    │   │   │       ├── ActuatorAdapterManagerTest.py
+    │   │   │       ├── __init__.py
+    │   │   │       ├── __pycache__
+    │   │   │       │   └── __init__.cpython-312.pyc
+    │   │   │       └── SensorAdapterManagerTest.py
+    │   │   ├── __pycache__
+    │   │   │   └── __init__.cpython-312.pyc
+    │   │   └── unit
+    │   │       ├── data
+    │   │       │   ├── ActuatorDataTest.py
+    │   │       │   ├── BaseIotDataTest.py
+    │   │       │   ├── DataUtilTest.py
+    │   │       │   ├── __init__.py
+    │   │       │   ├── __pycache__
+    │   │       │   │   └── __init__.cpython-312.pyc
+    │   │       │   ├── SensorDataTest.py
+    │   │       │   └── SystemPerformanceDataTest.py
+    │   │       ├── __init__.py
+    │   │       ├── __pycache__
+    │   │       │   └── __init__.cpython-312.pyc
+    │   │       └── sim
+    │   │           ├── HumidifierActuatorSimTaskTest.py
+    │   │           ├── HumiditySensorSimTaskTest.py
+    │   │           ├── HvacActuatorSimTaskTest.py
+    │   │           ├── __init__.py
+    │   │           ├── PressureSensorSimTaskTest.py
+    │   │           ├── __pycache__
+    │   │           │   └── __init__.cpython-312.pyc
+    │   │           └── TemperatureSensorSimTaskTest.py
+    │   ├── part03
+    │   │   ├── __init__.py
+    │   │   ├── integration
+    │   │   │   ├── app
+    │   │   │   │   ├── DeviceDataManagerCallbackTest.py
+    │   │   │   │   ├── DeviceDataManagerIntegrationTest.py
+    │   │   │   │   ├── DeviceDataManagerWithCommsTest.py
+    │   │   │   │   ├── DeviceDataManagerWithMqttClientOnlyTest.py
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   └── __pycache__
+    │   │   │   │       ├── DeviceDataManagerCallbackTest.cpython-312.pyc
+    │   │   │   │       ├── DeviceDataManagerIntegrationTest.cpython-312.pyc
+    │   │   │   │       └── __init__.cpython-312.pyc
+    │   │   │   ├── connection
+    │   │   │   │   ├── CoapClientConnectorTest.py
+    │   │   │   │   ├── CoapClientPerformanceTest.py
+    │   │   │   │   ├── CoapServerAdapterTest.py
+    │   │   │   │   ├── __init__.py
+    │   │   │   │   ├── MqttClientConnectorTest.py
+    │   │   │   │   ├── MqttClientPerformanceTest.py
+    │   │   │   │   └── __pycache__
+    │   │   │   │       ├── CoapClientConnectorTest.cpython-312.pyc
+    │   │   │   │       ├── CoapClientPerformanceTest.cpython-312.pyc
+    │   │   │   │       ├── __init__.cpython-312.pyc
+    │   │   │   │       ├── MqttClientConnectorTest.cpython-312.pyc
+    │   │   │   │       └── MqttClientPerformanceTest.cpython-312.pyc
+    │   │   │   ├── __init__.py
+    │   │   │   └── __pycache__
+    │   │   │       └── __init__.cpython-312.pyc
+    │   │   ├── __pycache__
+    │   │   │   └── __init__.cpython-312.pyc
+    │   │   └── unit
+    │   │       ├── __init__.py
+    │   │       └── __pycache__
+    │   │           └── __init__.cpython-312.pyc
+    │   ├── part04
+    │   │   └── integration
+    │   │       └── connection
+    │   │           ├── __pycache__
+    │   │           │   ├── SystemTest.cpython-312.pyc
+    │   │           │   └── ThresholdActuationTest.cpython-312.pyc
+    │   │           ├── system_test_cda.log
+    │   │           ├── SystemTest.py
+    │   │           └── ThresholdActuationTest.py
+    │   └── __pycache__
+    │       └── __init__.cpython-312.pyc
+    └── __pycache__
+        └── __init__.cpython-312.pyc
+
+53 directories, 103 files

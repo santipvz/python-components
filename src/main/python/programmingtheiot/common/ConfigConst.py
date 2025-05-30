@@ -192,6 +192,11 @@ CDA_SYSTEM_PERF_MSG_RESOURCE          = PRODUCT_NAME + '/' + CONSTRAINED_DEVICE 
 # Configuration Sections, Keys and Defaults
 #
 
+# Threshold configuration keys
+TEMP_THRESHOLD_KEY = 'tempThreshold'
+HUMIDITY_THRESHOLD_KEY = 'humidityThreshold'
+PRESSURE_THRESHOLD_KEY = 'pressureThreshold'
+
 # NOTE: You may need to update these paths if you change
 # the directory structure for python-components
 
